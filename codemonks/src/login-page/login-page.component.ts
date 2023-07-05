@@ -8,23 +8,40 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class LoginPageComponent implements OnInit {
 
-  myForm!: FormGroup;
-  name = new FormControl('');
+  LoginForm!: FormGroup;
+  inputsForm = new FormControl('');
+  submitted = false;
 
   constructor(public fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.myForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      message: ['', [Validators.required, Validators.minLength(15)]]
-    })
+    this.LoginForm = this.fb.group({
+      username: ['', [Validators.required, Validators.minLength(5)]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+    }
+    );
+  } 
+
+  get loginFormControls() {
+    return this.LoginForm.controls; 
   }
 
-  onSubmit(form: FormGroup) {
-    console.log('Valid?', form.valid); // true or false
-    console.log('Name', form.value.name);
-    console.log('Email', form.value.email);
-    console.log('Message', form.value.message);
+  // checkRequiredFields() {
+  //   if (this.LoginForm.controls.username && !this.LoginForm.controls.password) {
+  //     console.table('Please Enter Password');
+  //   } else if (!this.LoginForm.controls.username && this.LoginForm.controls.password) {
+  //     console.table('Please Enter User Name');
+  //   } else if (this.LoginForm.controls.username && this.LoginForm.controls.password) {
+  //     console.table('All details are entered');
+  //   }
+  // }
+
+  onSubmit() {
+    this.submitted = true;
+    // this.checkRequiredFields();
+    if (this.LoginForm.valid) {
+      alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+      console.table(this.LoginForm.value);
+    }
   }
 }
