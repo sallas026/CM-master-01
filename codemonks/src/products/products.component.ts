@@ -6,12 +6,11 @@ import { productService } from 'src/services/products/product.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent {
+export class productsComponent {
 
-  constructor(private products: productService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.products.getUsersList();
   }
 
 }

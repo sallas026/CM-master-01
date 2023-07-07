@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -12,7 +13,7 @@ export class LoginPageComponent implements OnInit {
   inputsForm = new FormControl('');
   submitted = false;
 
-  constructor(public fb: FormBuilder) {}
+  constructor(public fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.LoginForm = this.fb.group({
@@ -40,8 +41,14 @@ export class LoginPageComponent implements OnInit {
     this.submitted = true;
     // this.checkRequiredFields();
     if (this.LoginForm.valid) {
-      alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+      // alert('Form Submitted succesfully!!!\n Check the values in browser console.');
       console.table(this.LoginForm.value);
+      const {username, password} = this.LoginForm.value;
+      if (username === 'admin' && password === 'admin1234') {
+        this.router.navigateByUrl("/home");
+      } else {
+        alert('Please enter correct username and password');
+      }
     }
   }
 }

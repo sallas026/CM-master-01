@@ -11,11 +11,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { HomeComponent } from 'src/home/home.component';
+import { HeaderComponent } from 'src/layout/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,10 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatCardModule,
     ReactiveFormsModule,
+    MatExpansionModule,
     BrowserAnimationsModule
+  ],
+  exports: [
   ],
   providers: [],
   bootstrap: [AppComponent]
