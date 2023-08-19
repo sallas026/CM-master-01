@@ -1,1 +1,22 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+html {
+    // background-color: #000;
+}
+
+body {
+}
+
+
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+}
+
+// @-ms-viewport {
+//     width: 1920px;
+// }

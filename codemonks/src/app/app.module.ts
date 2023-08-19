@@ -14,13 +14,22 @@ import {MatCardModule} from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { HomeComponent } from 'src/home/home.component';
 import { HeaderComponent } from 'src/layout/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { JsonPipe } from '@angular/common';
+import { productsComponent } from 'src/products/products.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import { A11yModule } from '@angular/cdk/a11y';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    productsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,12 +40,17 @@ import { HeaderComponent } from 'src/layout/header/header.component';
     MatIconModule,
     MatCardModule,
     ReactiveFormsModule,
+    MatTableModule,
     MatExpansionModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatPaginatorModule,
+    HttpClientModule,
+    MatSortModule,
+    A11yModule
   ],
   exports: [
   ],
-  providers: [],
+  providers: [JsonPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

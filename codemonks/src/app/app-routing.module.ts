@@ -9,7 +9,9 @@ import { productsComponent } from 'src/products/products.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent},
+  { path: 'login', component: LoginPageComponent },
+
   { path: 'product', component: productsComponent },
   { path: 'contact', component: ContactUsComponent },
   { path: 'customers', component: CustomersComponent },

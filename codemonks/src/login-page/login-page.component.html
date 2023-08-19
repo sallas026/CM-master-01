@@ -1,6 +1,6 @@
 <ng-container>
   <form class="formInput" [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
-    <mat-form-field class="formInput-full-width">
+    <mat-form-field #userRef class="formInput-full-width">
       <mat-label>UserName</mat-label>
       <input matInput formControlName="username" placeholder="User Name">
     </mat-form-field>

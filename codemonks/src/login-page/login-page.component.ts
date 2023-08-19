@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -7,14 +7,19 @@ import { Router } from '@angular/router';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent implements OnInit, AfterViewInit {
 
   LoginForm!: FormGroup;
   inputsForm = new FormControl('');
   submitted = false;
+  @ViewChild('userRef') userElementRef: ElementRef;
 
   constructor(public fb: FormBuilder, private router: Router) {}
 
+  ngAfterViewInit(): void {
+    this.userElementRef.nativeElement.focus();
+    console.log(this.userElementRef);
+  }
   ngOnInit(): void {
     this.LoginForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(5)]],
